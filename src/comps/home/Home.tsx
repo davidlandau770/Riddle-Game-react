@@ -1,12 +1,13 @@
+import { Link } from "react-router"
 import "./home.css"
 
 export default function Home() {
   return (
     <div className="account">
       <h1>Welcome to the world's greatest Riddle Game!</h1>
-      <button className="btn">login</button>
-      <button className="btn">register</button>
-      <button className="btn">play game</button>
+      <Link className="link" to={""}><button className="btn play">play game</button></Link>
+      <Link className="link" to={"login"}><button className="btn">login</button></Link>
+      <Link className="link" to={"register"}><button className="btn">register</button></Link>
     </div>
   )
 }

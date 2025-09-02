@@ -3,6 +3,8 @@ import Home from "../comps/home/Home";
 import Account from "../comps/account/Account";
 import Settings from "../comps/home/Settings";
 import LinkAbout from "../comps/home/LinkAbout";
+import Login from "../comps/account/login/Login";
+import Register from "../comps/account/register/register";
 
 export default function ConfigRoutes() {
     return (
@@ -10,9 +12,11 @@ export default function ConfigRoutes() {
             <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='account' element={<Account />} />
+                <Route path='login' element={<Login />} />
                 <Route path='/about' element={<LinkAbout />} />
                 <Route path='/settings' element={<Settings />}>
                 </Route>
+                <Route path='/register' element={<Register />} />
             </Routes>
 
         </div>
