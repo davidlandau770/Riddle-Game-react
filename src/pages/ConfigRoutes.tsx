@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router";
 import Home from "../comps/home/Home";
 import Account from "../comps/account/Account";
 import Settings from "../comps/home/Settings";
-import About from "../comps/home/about";
+import LinkAbout from "../comps/home/LinkAbout";
 
 export default function ConfigRoutes() {
     return (
@@ -10,7 +10,7 @@ export default function ConfigRoutes() {
             <Routes>
                 <Route path='/' element={<Home />} />
                     <Route path='account' element={<Account />} />
-                <Route path='/about' element={<About />} />
+                <Route path='/about' element={<LinkAbout />} />
                 <Route path='/settings' element={<Settings />}>
                 </Route>
             </Routes>

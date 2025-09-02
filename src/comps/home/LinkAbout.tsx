@@ -1,4 +1,4 @@
-export default function About() {
+export default function LinkAbout() {
   return (
     <div>about</div>
   )
