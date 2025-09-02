@@ -9,7 +9,7 @@ export default function ConfigRoutes() {
         <div>
             <Routes>
                 <Route path='/' element={<Home />} />
-                    <Route path='account' element={<Account />} />
+                <Route path='account' element={<Account />} />
                 <Route path='/about' element={<LinkAbout />} />
                 <Route path='/settings' element={<Settings />}>
                 </Route>
