@@ -1,0 +1,40 @@
+.account {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: rgba(131, 4, 4, 0.05);
+    border: 1px solid rgba(131, 4, 4, 0.3);
+    border-radius: 12px;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 10px;
+    color: rgb(131, 4, 4);
+    line-height: 45px;
+    font-family: "Bungee", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    transition: 0.5s ease-out;
+    transform: scale(1.03);
+}
+
+.btn {
+    padding: 15px 70px;
+    margin: 8px auto;
+    background: rgb(131, 4, 4);
+    color: #fffad3;
+    font-weight: 600;
+    font-size: 1.1em;
+    cursor: pointer;
+    border: 1px solid #888;
+    border-radius: 12px;
+    width: 80%;
+    transition: 0.3s ease-in;
+}
+
+.btn:hover {
+    transform: scale(1.03);
+}

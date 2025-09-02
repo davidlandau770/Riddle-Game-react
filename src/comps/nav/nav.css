@@ -1,0 +1,28 @@
+nav {
+    background-color: rgb(131, 4, 4);
+}
+
+.ol {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+}
+
+.li {
+    list-style-type: none;
+    padding: 10px;
+}
+
+.img1 {
+    width: 35px;
+}
+
+.img2 {
+    width: 25px;
+}
+
+a {
+    color: #fffad3;
+    text-decoration-line: none;
+}

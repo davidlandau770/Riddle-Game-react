@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+:root {
+    background: linear-gradient(135deg, rgba(252, 247, 223, 0.4) 3%,rgba(255, 207, 207, 0.4) 100%), url("./src/assets/logo-bg.png");
+    background-size: 100%;
+    background-repeat: repeat-y;
+    min-height: 100vh;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 91vh;
+}
