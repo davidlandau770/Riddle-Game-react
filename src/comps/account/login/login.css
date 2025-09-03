@@ -1,0 +1,20 @@
+.inputs {
+    display: flex;
+    flex-direction: column;
+    width: 66%;
+    margin: auto;
+}
+
+.label {
+    text-align: left;
+    font-weight: 600;
+    padding: 8px 0;
+}
+
+.input {
+    padding: 10px;
+    background-color: #fffad3;
+    border: 1px solid rgba(131, 4, 4, 0.3);
+    border-radius: 5px;
+    margin: 8px 0 18px;
+}

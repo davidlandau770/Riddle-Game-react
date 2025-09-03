@@ -31,3 +31,7 @@ a {
     color: #fffad3;
     text-decoration-line: none;
 }
+
+.currPage a {
+    color: black;
+}
