@@ -1,5 +1,7 @@
 nav {
     background-color: rgb(131, 4, 4);
+    position: sticky;
+    top: 0;
 }
 
 .ol {

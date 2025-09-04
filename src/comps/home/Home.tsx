@@ -1,7 +1,7 @@
 import { Link } from "react-router"
 import "./home.css"
 import { useContext, useEffect } from "react";
-import { LinkCurrPageContext } from "../context/LinkCurrentPageContext";
+import { LinkCurrPageContext } from "../../context/LinkCurrentPageContext";
 
 export default function Home() {
     const currPage = useContext(LinkCurrPageContext);
