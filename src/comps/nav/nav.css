@@ -8,7 +8,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 30px;
+    padding: 0 5%;
 }
 
 .li {
@@ -34,6 +34,11 @@ a {
     text-decoration-line: none;
 }
 
-.currPage a {
-    color: black;
+.currPage {
+    position: absolute;
+    top: 60px;
+    left: 18px;
+    font-size: .8em;
+    color: rgb(131, 4, 4);
+    font-weight: bold;
 }

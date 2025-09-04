@@ -12,10 +12,12 @@ export default function Nav() {
         <nav>
             <ol className="ol">
                 <li className="li"><Link to={"/"}><img className="img1" src="logo.png" /></Link></li>
-                {auth?.user?.username && <li className="li currPage"><Link to={`/${currPage?.currPage}`}>{currPage?.currPage}</Link></li>}
-                <li className="li"><Link to={"/account"}><img className="img2" src="account.png" /></Link></li>
+                {auth?.user?.role === "admin" && <li className="li"><Link to={`/players`}>Get all players</Link></li>}
+                {auth?.user?.username && <li className="li"><Link to={`/users/${auth.user.username}`}>{auth.user.username}</Link></li>}
+                {!auth?.user?.username && <li className="li"><Link to={"/account"}><img className="img2" src="account.png" /></Link></li>}
                 <li className="li"><Link to={"/about"}>About</Link></li>
             </ol>
+            <p className="currPage">» {currPage?.currPage} »</p>
         </nav>
     )
 }

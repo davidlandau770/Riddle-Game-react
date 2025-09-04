@@ -5,6 +5,7 @@ import Settings from "../comps/home/Settings";
 import LinkAbout from "../comps/home/LinkAbout";
 import Login from "../comps/account/login/Login";
 import Register from "../comps/account/register/Register";
+import Logout from "../comps/account/logout/Logout";
 
 export default function ConfigRoutes() {
     return (
@@ -17,6 +18,7 @@ export default function ConfigRoutes() {
                 <Route path='/about' element={<LinkAbout />} />
                 <Route path='/settings' element={<Settings />} />
                 <Route path='/register' element={<Register />} />
+                <Route path='/logout' element={<Logout />} />
             </Routes>
         </div>
     )

@@ -1,17 +1,13 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import "./login.css";
 import { LinkCurrPageContext } from "../../../context/LinkCurrentPageContext";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../../../context/AuthContext";
 
-type account = {
+export type account = {
   username: string;
   password: string;
 }
-
-// type result = {
-//   msg: string;
-// }
 
 export type Player = {
   id: number;
@@ -21,27 +17,28 @@ export type Player = {
   role: "user" | "admin" | "";
 };
 
-export type Result = {
+export type Data = {
   msg: string;
   currentPalyer: Player;
 };
 
+export const URL = "http://localhost:3000";
+
 export default function Login() {
-  const [note, setNote] = useState<account>({ username: "", password: "" });
-  const [resultServer, setResult] = useState<string>("");
-  const [addClassResult, setAddClassResult] = useState("");
-  const navigate = useNavigate();
-  const account = useRef<account>({ username: "", password: "" });
-  const URL = "http://localhost:3000";
-  
   const auth = useContext(AuthContext);
   const currPage = useContext(LinkCurrPageContext);
+  const [note, setNote] = useState<account>({ username: "", password: "" });
+  const [resultServer, setResult] = useState<string>("");
+  const [addClassData, setAddClassData] = useState("");
+  const navigate = useNavigate();
+  const account = useRef<account>({ username: "", password: "" });
+  
   useEffect(() => {
     currPage?.setCurrPage("Login")
   }, [])
 
   const fetchLogin = async () => {
-    let result: Result;
+    let data: Data;
     setNote({ username: "", password: "" });
     if (account.current.username && account.current.password) {
       try {
@@ -54,34 +51,32 @@ export default function Login() {
           body: JSON.stringify(account.current),
           credentials: "include"
         })
-        result = await response.json();
+        data = await response.json();
         
-        auth?.setUser({ ...auth.user, ["username"]: result.currentPalyer.username, ["role"]: result.currentPalyer.role})
+        auth?.setUser({ ...auth.user, ["username"]: data?.currentPalyer?.username, ["role"]: data?.currentPalyer?.role})
         
-        if (result.msg === "User not found") {
-          setAddClassResult("errorDiv")
+        if (data.msg === "User not found") {
+          setAddClassData("errorDiv")
           setTimeout(() => {
-            setAddClassResult("");
+            setAddClassData("");
           }, 200);
         }
-        else if (result.msg === "Unauthorized") {
-          setAddClassResult("errorDiv")
+        else if (data.msg === "Unauthorized") {
+          setAddClassData("errorDiv")
           setTimeout(() => {
-            setAddClassResult("");
+            setAddClassData("");
           }, 200);
         }
         else {
-          if (result.msg === "Verified") {
-            setAddClassResult("goodDiv");
+          if (data.msg === "Verified") {
+            setAddClassData("goodDiv");
             setTimeout(() => {
               navigate("/");
-              setAddClassResult("");
+              setAddClassData("");
             }, 1000);
           }
         }
-        result.msg === "User not found" ? setNote({ ...note, ["username"]: "User not found", ["password"]: "" }) : result.msg === "Unauthorized" ? setNote({ ...note, ["username"]: "", ["password"]: "Unauthorized" }) : result.msg === "Verified" ? setResult("Verified") : setNote({ ...note, ["username"]: "", ["password"]: "" })
-        console.log(result);
-        console.log(auth);
+        data.msg === "User not found" ? setNote({ ...note, ["username"]: "User not found", ["password"]: "" }) : data.msg === "Unauthorized" ? setNote({ ...note, ["username"]: "", ["password"]: "Unauthorized" }) : data.msg === "Verified" ? setResult("Verified") : setNote({ ...note, ["username"]: "", ["password"]: "" })
       } catch (error) {
         console.error(`login: ${error}`);
       }
@@ -95,13 +90,12 @@ export default function Login() {
       if (!account.current.password) {
         errors.password = "The password is required!";
       }
-
       setNote(errors);
     }
   }
 
   return (
-    <div className={`account ${addClassResult}`}>
+    <div className={`account ${addClassData}`}>
       <h1 className="title">Login:</h1>
       <form onSubmit={(e) => { e.preventDefault(); fetchLogin(); }}>
         <div className="inputs">
@@ -112,8 +106,9 @@ export default function Login() {
           <label className="label" htmlFor="password">password<span className="redColor">*</span>:</label>
           <input className="input" id="password" name="password" placeholder="Enter password" onChange={(e) => account.current.password = e.target.value} />
           <p className="errors">{note.password}</p>
+          <Link to={"/register"} className="toTurnPage">For quick registration <img src="link.png"/></Link>
         </div>
-        <button className="btn" type="submit">login</button>
+        <button className="btn" type="submit">Login</button>
       </form>
     </div>
   )
